@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Push Notification</title>
+	<script type="text/javascript" src="push.min.js"></script>
+	<script type="text/javascript" src="serviceWorker.min.js"></script>
+	<script type="text/javascript" src="serviceWorker.min.js"></script>
+</head>
+<body>
+	<button onclick="proper_noti()">Push Notification</button> 
+	<button onclick="start()">Push Demo</button> 
+
+</body>
+
+<script type="text/javascript">
+	function start(){
+		Push.create('Hello World!');
+	}
+
+	function proper_noti(){
+		Push.create("You clicked for Push Notification", {
+		    body: "Neighboring Nurse",
+		    icon: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/Female_Medical_Nurse_Flat_Icon_Vector.svg/1024px-Female_Medical_Nurse_Flat_Icon_Vector.svg.png',
+		     vibrate: [200, 100, 200, 100, 200, 100, 200],
+		    timeout: 4000,
+		    onClick: function () {
+		    	window.open('http://localhost/project/php/Demo/Push%20Notification/second.html');
+		        this.close();
+		    }
+		});
+	}
+</script>
+</html>
